@@ -1,0 +1,233 @@
+
+1.write a program to find sum of the smallest and highest prime number in a given range?
+
+
+2.Program to Round a Number to n Decimal Places/////Input....1.34678----OutPut.....1.35
+
+
+3.Write a program to display a number whose digits are 3 greater than the corresponding digits of the number TAKEN.
+
+
+For example, if the number is 5696, then output should be 8919
+
+
+4.Program to  find common elements in three arrays which are sorted? 
+
+Examples: input1 = {​​​​​​​12, 35, 310, 120, 640, 180}​​​​​​​
+
+input2 = {​​​​​​​656, 327, 120, 180, 5600}​​​​​​​
+
+input3 = {​​​​​​​33, 44, 515, 120, 330, 770, 180, 1120}​​​​​​​
+
+Output: 120, 180
+
+
+5.find the sum of array elements which repeating 5 times in given 20 elements array?
+
+
+import java.util.Scanner;
+public class Main{
+static boolean checkPrime(int numberToCheck)
+{
+if(numberToCheck == 1) {
+return false;
+}
+for (int i = 2; i*i <= numberToCheck; i++) {
+if (numberToCheck % i == 0) {
+return false;
+}
+}
+return true;
+}
+
+
+
+// Method to iterate the loop from l to r
+// If prime number detects, sum the value
+static int primeSum(int l, int r)
+{
+int sum = 0;
+for (int i = r; i >= l; i--) {
+
+
+
+// Check for prime
+boolean isPrime = checkPrime(i);
+if (isPrime) {
+
+// Sum the prime number
+sum = sum + i;
+}
+}
+return sum;
+}
+
+public static void main(String[] args)
+{
+int l = 4, r = 13;
+// Call the method with l and r
+System.out.println(primeSum(l, r));
+}
+}
+
+
+2.import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    int round;
+	    float num;
+	    Scanner sc=new Scanner(System.in);
+	    num=sc.nextFloat();
+	    round=sc.nextInt();
+	    int res=1;
+	    for(int pow=1;pow<=round;pow++){
+	        res=res*10;
+	    }
+	    num=(int)(num*res);
+	    num=num/res;
+		System.out.println(num);
+	}
+}
+
+1.import java.util.Scanner;
+ 
+public class Demo {
+ 
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int n1 = scanner.nextInt();
+        int n2 = scanner.nextInt();
+
+        boolean isFirst = false;
+        int firstPrimeNo=0;
+        int lastPrimeNo=0;
+        for(int i=n1;i<=n2;i++) {
+
+            if( isPrime(i) == true) {
+
+                if(isFirst == false) {
+                    firstPrimeNo = i;
+                    isFirst = true;
+                }
+
+                lastPrimeNo = i;
+
+            }// if
+    }// for
+
+        System.out.println("Smalest prime No..."+firstPrimeNo+"....Biggest prime No..."+lastPrimeNo);
+
+    }
+ 
+    
+    static boolean isPrime(int n){
+
+        boolean res = false;
+        int i;
+        for(i=2;(i<=n/2) && (n % i != 0);i++);
+
+        if(i>n/2) {
+            res = true;
+        }
+        return res;
+    }
+
+}
+
+
+reverse way...
+
+
+import java.util.Scanner; public class Demo {​​​​​   
+  public static void main(String[] args) {​​​​​
+
+        Scanner scanner = new Scanner(System.in);
+
+        int n1 = scanner.nextInt();
+
+        int n2 = scanner.nextInt();
+
+        boolean isFirst = false;
+
+        int biggestPrime=0;
+
+        int smallestPrime=0;
+
+        for(int i=n2;i>=n1;i--) {​​​​​// 200...100
+
+            if( isPrime(i) == true) {​​​​​
+
+                if(isFirst == false) {​​​​​
+
+                    biggestPrime = i;
+
+                    isFirst = true;
+
+                }​​​​​
+
+                smallestPrime = i;
+
+            }​​​​​// if
+
+    }​​​​​// for
+
+        // 100.. 200
+
+        // 200..100
+
+        System.out.println("Smalest prime No..."+smallestPrime+"....Biggest prime No..."+biggestPrime);
+
+    }​​​​​     
+
+    static boolean isPrime(int n){​​​​​
+
+        boolean res = false;
+
+        int i;
+
+        for(i=2;(i<=n/2) && (n % i != 0);i++);
+
+        if(i>n/2) {​​​​​
+
+            res = true;
+
+        }​​​​​
+
+        return res;
+
+    }​​​​​
+
+}​​​​​
+
+
+
+rounded .....
+
+
+
+
+public class RoundedNo {​​​​​​​     public static void main(String[] args) {​​​​​​​
+
+        float n =  1.34678f;
+
+        int temp  = (int)(n * 1000);// 1346
+
+        int r = temp % 10;/// 1346 % 10...
+
+        if(r >=5)
+
+        {​​​​​​​
+
+            temp = (temp / 10) + 1;//1346/10 === 134 +1
+
+        }​​​​​​​
+
+        n = temp / 100.0f;// === 135 / 100.0 ===== 1.35
+
+        System.out.println("Result...."+n);
+
+        // 1.35     }​​​​​​​ }​​​​​​​
+

@@ -1,0 +1,26 @@
+<html>
+<head>
+</head>
+<body>
+  <script>
+      var Student={
+			'name':'Ranjitha'
+  			'isGeg': true,
+			'age': 28,
+			'marks':[
+			{ 'english': 89 },
+			{ 'math' : 90 },
+			{ 'science' : 98 },
+			{ 'kannada' : 99 },
+			{ 'hindi' : 90 }
+		]
+}
+console.log(Student);
+		
+console.log('Name is:' + Student.name);
+console.log('Age is:' + Student.age);
+console.log('english:' + Student.marks[0].english);
+
+</script>
+</body>
+</html>
